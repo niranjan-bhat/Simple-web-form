@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Frontend Mentor | Intro component with sign up form</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="main-title">Learn to code by watching others</div>
+          <div class="main-description">
+            See how experienced developers solve problems in real-time. Watching
+            scripted tutorials is great, but understanding how developers think
+            is invaluable.
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="subscription-warning center">
+            <span>Try it free 7 days &nbsp</span> then $20/mo.
+          </div>
+          <div class="form">
+            <div class="form-container">
+              <div class="input-container firstname-div">
+                <input
+                  autocomplete="off"
+                  class="textbox"
+                  name="firstname"
+                  type="text"
+                  placeholder="First Name"
+                />
+                <span class="error-icon"
+                  ><i class="bi bi-exclamation-circle-fill"></i
+                ></span>
+                <p class="error-message">First Name cannot be empty</p>
+              </div>
+              <div class="input-container lastname-div">
+                <input
+                  autocomplete="off"
+                  class="textbox"
+                  name="lastname"
+                  type="text"
+                  placeholder="Last Name"
+                />
+                <span class="error-icon"
+                  ><i class="bi bi-exclamation-circle-fill"></i
+                ></span>
+                <p class="error-message">Last Name cannot be empty</p>
+              </div>
+              <div class="input-container email-div">
+                <input
+                  autocomplete="off"
+                  name="email"
+                  class="textbox"
+                  type="text"
+                  placeholder="Email Address"
+                />
+                <span class="error-icon"
+                  ><i class="bi bi-exclamation-circle-fill"></i
+                ></span>
+                <p class="error-message">Looks like this is not an email</p>
+              </div>
+              <div class="input-container password-div">
+                <input
+                  autocomplete="off"
+                  class="textbox"
+                  name="password"
+                  type="text"
+                  placeholder="Password"
+                />
+                <span class="error-icon"
+                  ><i class="bi bi-exclamation-circle-fill"></i
+                ></span>
+                <p class="error-message">Password cannot be empty</p>
+              </div>
+              <button class="submit-btn" onclick="validate()">
+                CLAIM YOUR FREE TRIAL
+              </button>
+            </div>
+            <p class="form-footer">
+              By clicking the button, you are agreeing to our
+              <span class="terms-condition"
+                ><a href="#">Terms and Services</a></span
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Learn to code by watching others See how experienced developers solve
+    problems in real-time. Watching scripted tutorials is great, but
+    understanding how developers think is invaluable. Try it free 7 days then
+    $20/mo. thereafter First Name Last Name Email Address Password Claim your
+    free trial By clicking the button, you are agreeing to our Terms and
+    Services -->
+
+    <!-- <footer>
+      <p class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Your Name Here</a>.
+      </p>
+    </footer> -->
+  </body>
+  <script>
+    function validate() {
+      firstname = document.getElementsByName("firstname")[0].value;
+      lastname = document.getElementsByName("lastname")[0].value;
+      email = document.getElementsByName("email")[0].value;
+      password = document.getElementsByName("password")[0].value;
+
+      validateInput(firstname, ".firstname-div");
+      validateInput(lastname, ".lastname-div");
+      validateInput(email, ".email-div");
+      validateInput(password, ".password-div");
+    }
+
+    function isEmptyOrSpaces(str) {
+      return str === null || str.match(/^ *$/) !== null;
+    }
+
+    function validateInput(inputvalue, containerClass) {
+      if (isEmptyOrSpaces(inputvalue)) {
+        div = document.querySelector(containerClass);
+        showErrorForContainer(div);
+      } else {
+        div = document.querySelector(containerClass);
+        hideErrorForContainer(div);
+      }
+    }
+
+    function showErrorForContainer(inputDiv) {
+      div.getElementsByTagName("input")[0].classList.add("input-error");
+      div.getElementsByTagName("span")[0].classList.add("danger");
+      div.getElementsByTagName("p")[0].classList.add("danger");
+    }
+
+    function hideErrorForContainer(inputDiv) {
+      div.getElementsByTagName("input")[0].classList.remove("input-error");
+      div.getElementsByTagName("span")[0].classList.remove("danger");
+      div.getElementsByTagName("p")[0].classList.remove("danger");
+    }
+  </script>
+</html>
