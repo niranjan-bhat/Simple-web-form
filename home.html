@@ -120,7 +120,7 @@
 
       validateInput(firstname, ".firstname-div");
       validateInput(lastname, ".lastname-div");
-      validateInput(email, ".email-div");
+      validateEmail(email, ".email-div");
       validateInput(password, ".password-div");
     }
 
@@ -148,6 +148,23 @@
       div.getElementsByTagName("input")[0].classList.remove("input-error");
       div.getElementsByTagName("span")[0].classList.remove("danger");
       div.getElementsByTagName("p")[0].classList.remove("danger");
+    }
+
+    function validateEmail(inputvalue, containerClass) {
+      if (!isVlidEmail(inputvalue)) {
+        div = document.querySelector(containerClass);
+        showErrorForContainer(div);
+      } else {
+        div = document.querySelector(containerClass);
+        hideErrorForContainer(div);
+      }
+    }
+    function isVlidEmail(mail) {
+      if (isEmptyOrSpaces(mail)) return false;
+      if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
+        return true;
+      }
+      return false;
     }
   </script>
 </html>
