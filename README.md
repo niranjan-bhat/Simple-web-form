@@ -1,4 +1,4 @@
 # Simple-web-form
 Sample web form using HTML, CSS, JS
 
-Live: https://simple-js-form.herokuapp.com/
+Live Site: https://niranjan-bhat.github.io/Simple-web-form/
